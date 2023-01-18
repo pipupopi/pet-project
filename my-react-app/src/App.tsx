@@ -1,8 +1,9 @@
 import React from 'react';
+import {MainComponent} from './Components/MainComponent'
 
 function App() {
   return (
-  <h1>project</h1>
+  <MainComponent/>
   )
 }
 
