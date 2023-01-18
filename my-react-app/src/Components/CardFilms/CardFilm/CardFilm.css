@@ -6,16 +6,16 @@
 .wrapperCard {
   margin-top: 30px;
   margin-left: 30px;
-  width: 300px;
   height: 240px;
-  background-color: rgb(248, 248, 248);
+  background-color: rgb(22, 22, 48);
   box-shadow: 10px 10px 10px 1px rgba(51, 51, 51, 0.4);
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .img_container {
   border-right: 1px solid;
-  width: 150px;
+  width: 140px;
   height: 240px;
 }
 
@@ -35,7 +35,8 @@
 
 .header_card {
   position: relative;
-  font-size: 15px;
+  padding-left: 7px;
+  font-size: 14px;
   color: #ea003d;
   margin-top: 10px;
   max-width: 140px;
@@ -44,13 +45,14 @@
 }
 
 .name_card {
-  margin-top: 22px;
+  margin-top: 15px;
   padding-left: 5px;
   padding-right: 5px;
-  font-size: 16px;
+  font-size: 15px;
   padding-left: 5px;
   text-align: left;
   font-weight: bold;
+  color: white;
 }
 
 .button_info {
@@ -58,8 +60,7 @@
   margin-top: 100px;
   background-color: transparent;
   border: none;
-  font-size: 15px;
-  padding-top: 10px;
+  font-size: 14px;
   padding-left: 5px;
   color: #ea003d;
 }
@@ -69,6 +70,7 @@
   background-color: transparent;
   border: none;
   align-items: center;
-  width: 14px;
-  height: 14px;
+  width: 40px;
+  height: 18px;
+  padding-left: 75px;
 }

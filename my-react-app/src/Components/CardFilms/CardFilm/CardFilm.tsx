@@ -1,8 +1,13 @@
-
 import React from "react";
-import './CardFilm.css'
+import "./CardFilm.css";
 
-function CardFilm() {
+interface CARD_FILM {
+  vote: number;
+  title: string;
+  key: number;
+}
+
+function CardFilm({ vote, title }: CARD_FILM) {
   return (
     <div className="containerCard">
       <div className="wrapperCard">
@@ -16,13 +21,13 @@ function CardFilm() {
 
           <div className="right">
             <div className="header_card">
-              <div>Рейтинг: 5,7</div>
+              <div>Рейтинг {vote}</div>
+              {/* <img className="btn_favorit" src="/svg/saveFilm.svg"></img> */}
               <img className="btn_star" src="/svg/star.svg"></img>
-              <img className="btn_favorit" src="/svg/saveFilm.svg"></img>
             </div>
 
-            <div className="name_card">Истребитель демонов: Поезд Бесконечный</div>
-            <button className="button_info">Подробнее</button>
+            <div className="name_card">{title}</div>
+            <div className="button_info">Подробнее</div>
           </div>
         </div>
       </div>
@@ -30,4 +35,4 @@ function CardFilm() {
   );
 }
 
-export {CardFilm};
+export { CardFilm };

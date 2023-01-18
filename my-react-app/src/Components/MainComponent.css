@@ -1,14 +1,14 @@
 body {
-    background-color: rgb(22, 22, 48);
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
 }
-
 .App {
-    margin: 0 auto;
-    /* width: 50%; */
-    width: 930px;
-    height: 960px;
+  margin: 0 auto;
+  width: 930px;
+  height: 960px;
 }
 
 .used_space {
-    display: flex;
+  display: flex;
 }
