@@ -1,11 +1,11 @@
 import "./Genres.css";
 import React from "react";
-import { genresList } from "../../../const";
+import { GENRES_LIST } from "../../../const";
 
 function Genres() {
   return (
     <div>
-      {genresList.map((item) => (
+      {GENRES_LIST.map((item) => (
         <div key={item.id} className="genres_wrapper">
           <input className="genres_check" type="checkbox"></input>
           <p>{item.name}</p>

@@ -1,10 +1,14 @@
-import React from 'react';
-import {MainComponent} from './Components/MainComponent'
+import React from "react";
+import { Provider } from "react-redux";
+import { MainComponent } from "./Components/MainComponent";
+import { storePages } from "./redax";
 
 function App() {
   return (
-  <MainComponent/>
-  )
+    <Provider store={storePages}>
+      <MainComponent />
+    </Provider>
+  );
 }
 
-export default App
+export default App;

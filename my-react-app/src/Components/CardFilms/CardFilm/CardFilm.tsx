@@ -1,13 +1,9 @@
 import React from "react";
 import "./CardFilm.css";
+import { CARD_FILM } from "../../../interface";
 
-interface CARD_FILM {
-  vote: number;
-  title: string;
-  key: number;
-}
-
-function CardFilm({ vote, title }: CARD_FILM) {
+function CardFilm({ vote, title, src }: CARD_FILM) {
+  const img = `https://image.tmdb.org/t/p/w500/${src}`
   return (
     <div className="containerCard">
       <div className="wrapperCard">
@@ -15,7 +11,7 @@ function CardFilm({ vote, title }: CARD_FILM) {
           <div className="img_container">
             <img
               className="img"
-              src="https://avatars.mds.yandex.net/get-kinopoisk-image/4716873/9b395abc-e304-41ba-8816-3aab6db5541c/300x450"
+              src={img}
             />
           </div>
 

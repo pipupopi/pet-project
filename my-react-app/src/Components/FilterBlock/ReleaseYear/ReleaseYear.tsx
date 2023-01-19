@@ -1,11 +1,11 @@
 import React from "react";
 import { nanoid } from "nanoid";
-import { yearsList } from "../../../const";
+import { YEAR_LIST } from "../../../const";
 
 function ReleaseYear() {
   return (
     <select className="filter_selector">
-      {yearsList.map((item) => (
+      {YEAR_LIST.map((item) => (
         <option key={nanoid()}>{item}</option>
       ))}
     </select>
