@@ -1,0 +1,14 @@
+.find-input {
+    margin-top: 8px;
+    height: 36px;
+    width: 190px;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid #ea003d;
+    color: black;
+    padding-left: 8px;
+}
+
+.find-input::placeholder {
+    color: black;
+}
