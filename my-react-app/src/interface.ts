@@ -45,3 +45,21 @@ export interface PAGINATION_INTERFACE {
   nextPage: () => void;
   prevPage: () => void;
 }
+
+export interface FILTER_INTERFACE {
+  selectValue: React.ChangeEventHandler<HTMLSelectElement> | undefined;
+  valueSelectRatting: string,
+  resetFilters: () => void
+  selectYear: React.ChangeEventHandler<HTMLSelectElement> | undefined,
+  valueSelectYear: string
+}
+
+export interface SELECT_INTERFACE {
+  selectValue: React.ChangeEventHandler<HTMLSelectElement> | undefined,
+  valueSelectRatting: string
+}
+
+export interface SELECT_YEAR_INTERFACE {
+  selectYear: React.ChangeEventHandler<HTMLSelectElement> | undefined,
+  valueSelectYear: string
+}

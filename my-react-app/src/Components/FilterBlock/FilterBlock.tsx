@@ -2,13 +2,14 @@ import React from "react";
 import { Genres } from "./Genres/Genres";
 import "./FilterBlock.css";
 import { ReleaseYear } from "./ReleaseYear/ReleaseYear";
-import { SelectFilter } from "./Selector/Selector";
+import { SelectFilter } from "./SelectElement/SelectFilter";
 import { Pagination } from "./Pagination/Pagination";
 import { FindFilm } from "../FindFilm/FindFilm";
 import { useDispatch, useSelector } from "react-redux";
-import { LAST_PAGE, FIRST_PAGE, PAGINATION_VALUE } from "../../const";
+import { LAST_PAGE, PAGINATION_VALUE } from "../../const";
+import { FILTER_INTERFACE } from "../../interface";
 
-function FilterBlock() {
+function FilterBlock({selectValue, valueSelectRatting, resetFilters, selectYear, valueSelectYear}:FILTER_INTERFACE) {
   const dispatch = useDispatch();
   const pages = useSelector((state) => state);
 
@@ -22,8 +23,8 @@ function FilterBlock() {
   }
 
   function prevPage() {
-    pages === FIRST_PAGE
-      ? alert("Вы на первой странице!")
+    pages === 1
+      ? pages
       : dispatch({
           type: "PREV_PAGE",
           payload: PAGINATION_VALUE,
@@ -35,15 +36,15 @@ function FilterBlock() {
       <div className="filter_header">Найти:</div>
       <FindFilm />
       <div className="filter_header">Фильтры:</div>
-      <button className="filter_reset">Сбросить все фильтры</button>
+      <button className="filter_reset" onClick={resetFilters} >Сбросить все фильтры</button>
 
       <div className="">Сортировать по:</div>
-      <SelectFilter />
+      <SelectFilter selectValue={selectValue} valueSelectRatting={valueSelectRatting}/>
 
       <div>Год релиза:</div>
-      <ReleaseYear />
+      <ReleaseYear selectYear={selectYear} valueSelectYear={valueSelectYear}/>
       <Genres />
-      <Pagination nextPage={nextPage} prevPage={prevPage} />
+      <Pagination nextPage={nextPage} prevPage={prevPage}/>
     </div>
   );
 }
