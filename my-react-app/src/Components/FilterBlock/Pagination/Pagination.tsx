@@ -1,15 +1,36 @@
 import "./Pagination.css";
 import React from "react";
-import { PAGINATION_INTERFACE } from "../../../interface";
 import { useSelector } from "react-redux";
-import { LAST_PAGE, FIRST_PAGE } from "../../../const";
+import { FIRST_PAGE, PAGINATION_VALUE, MAX_FILM_PAGE } from "../../../const";
+import { useDispatch } from "react-redux";
+import { PAGINATION_INTERFACE } from "../../../interface";
 
-function Pagination({ nextPage, prevPage }: PAGINATION_INTERFACE) {
-  const page = useSelector((state) => state);
+function Pagination({ currentFilms}:PAGINATION_INTERFACE) {
+  const dispatch = useDispatch();
+  const pages = useSelector((state:any) => state.pages);
+  const lastPage = Math.trunc(currentFilms.length / MAX_FILM_PAGE);
+
+  function nextPage() {
+    pages === lastPage
+      ? pages
+      : dispatch({
+          type: "NEXT_PAGE",
+          payload: PAGINATION_VALUE,
+        });
+  }
+
+  function prevPage() {
+    pages === 1
+      ? pages
+      : dispatch({
+          type: "PREV_PAGE",
+          payload: PAGINATION_VALUE,
+        });
+  }
   return (
     <div>
       <div className="filter_btn">
-        {page === FIRST_PAGE ? (
+        {pages === FIRST_PAGE ? (
           <button
             className="btn"
             style={{ background: "grey" }}
@@ -22,7 +43,7 @@ function Pagination({ nextPage, prevPage }: PAGINATION_INTERFACE) {
             Назад
           </button>
         )}
-        {page === LAST_PAGE ? (
+        {pages === lastPage ? (
           <button
             className="btn"
             style={{ background: "grey" }}
@@ -36,7 +57,7 @@ function Pagination({ nextPage, prevPage }: PAGINATION_INTERFACE) {
           </button>
         )}
       </div>
-      <div className="number_page">{page + " из " + LAST_PAGE}</div>
+      <div className="number_page">{pages + " из " + lastPage}</div>
     </div>
   );
 }

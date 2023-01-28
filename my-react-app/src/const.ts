@@ -1,4 +1,3 @@
-import { LIST_FILMS } from "./listFilms";
 
 export const GENRES_LIST = [
   {
@@ -101,6 +100,21 @@ export const YEAES = {
 };
 
 export const MAX_FILM_PAGE = 6;
-export const LAST_PAGE = Math.ceil(LIST_FILMS.length / MAX_FILM_PAGE);
 export const FIRST_PAGE = 1;
 export const PAGINATION_VALUE = 1;
+export const DEFAULT_PASSWORD = '123'
+export const DEFAULT_LOGIN = '123'
+
+export const SAVED_MOVIE = "SAVED_MOVIE";
+export const LIKED_MOVIE = "LIKED_MOVIE";
+export const DETAILS_MOVIE = 'DETAILS_MOVIE'
+
+export const LOGIN_SELECT = {
+  SAVED: 'Смотреть позже', 
+  FAVORITES: 'Избранные',
+  ALL_FILMS: 'Весь список'
+}
+
+export const localSavedFilm = JSON.parse(localStorage.getItem('savedFilm') as any)
+export const localFavoritesFilm = JSON.parse(localStorage.getItem('favoritesFilm') as any)
+export const localDetailsFilm = JSON.parse(localStorage.getItem('detailsFilm') as any)

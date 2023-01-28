@@ -41,25 +41,31 @@ export interface CARD_FILM {
   src: string | undefined;
 }
 
-export interface PAGINATION_INTERFACE {
-  nextPage: () => void;
-  prevPage: () => void;
-}
-
 export interface FILTER_INTERFACE {
   selectValue: React.ChangeEventHandler<HTMLSelectElement> | undefined;
-  valueSelectRatting: string,
-  resetFilters: () => void
-  selectYear: React.ChangeEventHandler<HTMLSelectElement> | undefined,
-  valueSelectYear: string
+  valueSelectRatting: string;
 }
 
 export interface SELECT_INTERFACE {
-  selectValue: React.ChangeEventHandler<HTMLSelectElement> | undefined,
-  valueSelectRatting: string
+  selectValue: React.ChangeEventHandler<HTMLSelectElement> | undefined;
+  valueSelectRatting: string;
 }
 
-export interface SELECT_YEAR_INTERFACE {
-  selectYear: React.ChangeEventHandler<HTMLSelectElement> | undefined,
-  valueSelectYear: string
+export interface RELEASE_YEAR_INTERFACE {
+  selectYearValue: string,
+  selectYear: React.ChangeEventHandler<HTMLSelectElement> | undefined
+
+}
+
+export interface FILTER_BLOCK_INTERFACE {
+  currentFilms: any[];
+  setCurrentFilms: (arg0: any[]) => void;
+}
+
+export interface GENRES_INTERFACE {
+  valueCheckBox: boolean
+}
+
+export interface PAGINATION_INTERFACE {
+  currentFilms: any[];
 }

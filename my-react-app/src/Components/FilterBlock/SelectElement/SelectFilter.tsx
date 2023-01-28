@@ -1,13 +1,25 @@
-import React from 'react'
-import { FILTER_LIST } from '../../../const'
-import { nanoid } from 'nanoid'
-import { SELECT_INTERFACE } from '../../../interface'
+import React from "react";
+import { FILTER_LIST } from "../../../const";
+import { nanoid } from "nanoid";
 
-function SelectFilter({selectValue, valueSelectRatting}:SELECT_INTERFACE) {
-
-    return(<select value={valueSelectRatting} className="filter_selector" onChange={selectValue}>
-        {FILTER_LIST.map(item => <option key={nanoid()}>{item}</option>)}
-    </select>)
+interface TEST {
+  selectRating: React.ChangeEventHandler<HTMLSelectElement> | undefined
+  selectRatingValue: string
 }
 
-export {SelectFilter}
+function SelectFilter({ selectRatingValue, selectRating }: TEST) {
+
+  return (
+    <select
+      value={selectRatingValue}
+      className="filter_selector"
+      onChange={selectRating}
+    >
+      {FILTER_LIST.map((item) => (
+        <option key={nanoid()}>{item}</option>
+      ))}
+    </select>
+  );
+}
+
+export { SelectFilter };
