@@ -1,0 +1,68 @@
+.component {
+  position: absolute;
+  margin: -915px 0px 0px -5px;
+  background-color: rgb(22, 22, 48);
+  height: 905px;
+  width: 905px;
+}
+
+.filter-block {
+  margin: -405px 0px 0px 30px;
+  color: #ea003d;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  font-size: 17px;
+  position: absolute;
+  top: 410px;
+  padding-right: 40px;
+}
+
+.select-block select {
+    height: 36px;
+    width: 285px;
+    font-size: 14px;
+    padding-left: 4px;
+    border: 1px solid #ea003d;
+    margin-top: 4px;
+    border-radius: 5px;
+    margin-bottom: 18px;
+}
+
+.find-btn {
+    background-color: #ea003d;
+    font-size: 15px;
+    font-weight: bold;
+    height: 36px;
+    width: 285px;
+    color: rgb(22, 22, 48);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 12px;
+}
+
+.film-img {
+    height: 340px;
+    width: 270px;
+    border: 1px solid #ea003d;
+    border-radius: 5px;
+}
+
+.film {
+    margin: -475px 0px 0px 500px;
+}
+
+.pagination-btn button {
+    background-color: #ea003d;
+    font-size: 15px;
+    font-weight: bold;
+    height: 36px;
+    width: 137px;
+    color: rgb(22, 22, 48);
+    border: none;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.film-card {
+    font-size: 18px;
+}
