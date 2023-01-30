@@ -32,6 +32,7 @@ function FilterBlock({
     setValueCheckBox(false);
     setSelectRatting(POPULAR_DESCENDING);
     setSelectYear(YEAES[2020]);
+    setCurrentFilms(sortMovie(POPULAR_DESCENDING, YEAES[2020], genres, LIST_FILMS));
   }
 
   function filterByGenres(id: number) {

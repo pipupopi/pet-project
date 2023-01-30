@@ -17,7 +17,6 @@ function Authorization() {
       localStorage.setItem("logIn", JSON.stringify("true"));
     } else {
       setCheckLogIn(false);
-      alert("Нет такого аккаунта!");
     }
   }
 
@@ -31,45 +30,51 @@ function Authorization() {
   }, [checkLogIn]);
 
   return (
-    <div className="block-autho">
-      <Link to={"/"}>
-        <img src="/svg/exit.svg" className="btn-exit" />
-      </Link>
-      <p className="title">Авторизоваться</p>
-      <div className="form">
-        <form>
-          <p className="text-form">Логин:</p>
-          <input
-            onChange={(event) => {
-              setLogin(event.target.value);
-            }}
-            className="login-input"
-            type="text"
-            placeholder="Введите логин..."
-          />
-          <p className="text-form">Пароль:</p>
-          <input
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-            className="login-input"
-            type="text"
-            placeholder="Введите пароль..."
-          />
-        </form>
-      </div>
-      <div className="btn-sign-in">
-        {checkLogIn ? (
-          <Link to={"/"}>
-            <button onClick={Authorization} className="btn-log-in">
+    <div className="blur-div">
+      <div className="block-autho">
+        <Link to={"/"}>
+          <img src="/svg/exit.svg" className="btn-exit" />
+        </Link>
+        <p className="title">Авторизоваться</p>
+        <div className="form">
+          <form>
+            <p className="text-form">Логин:</p>
+            <input
+              onChange={(event) => {
+                setLogin(event.target.value);
+              }}
+              className="login-input"
+              type="text"
+              placeholder="Введите логин..."
+            />
+            <p className="text-form">Пароль:</p>
+            <input
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+              className="login-input"
+              type="text"
+              placeholder="Введите пароль..."
+            />
+          </form>
+        </div>
+        <div className="btn-sign-in">
+          {checkLogIn ? (
+            <Link to={"/"}>
+              <button onMouseMove={Authorization} className="btn-log-in">
+                Войти в аккаунт
+              </button>
+            </Link>
+          ) : (
+            <button
+              style={{ background: "grey" }}
+              onMouseMove={Authorization}
+              className="btn-log-in"
+            >
               Войти в аккаунт
             </button>
-          </Link>
-        ) : (
-          <button onClick={Authorization} className="btn-log-in">
-            Войти в аккаунт
-          </button>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

@@ -41,14 +41,13 @@
 }
 
 .film-img {
-    height: 340px;
+    height: 360px;
     width: 270px;
-    border: 1px solid #ea003d;
     border-radius: 5px;
 }
 
 .film {
-    margin: -475px 0px 0px 500px;
+    margin: -485px 0px 0px 500px;
 }
 
 .pagination-btn button {
@@ -64,5 +63,5 @@
 }
 
 .film-card {
-    font-size: 18px;
+    font-size: 16px;
 }

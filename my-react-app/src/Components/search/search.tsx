@@ -13,7 +13,7 @@ function Search() {
   const [currentFilms, setCurrentFilms] = useState<any>(
     findMovieFilter(popularity, vote, genre)
   );
-  const detailsFilm = useSelector((state: any) => state.detailsMovie);
+  const [checklastFilm, setCheckLastFilm] = useState<boolean>();
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
 
@@ -27,8 +27,9 @@ function Search() {
 
   function nextFilm() {
     if (page === currentFilms.length) {
-      alert("Больше фильмов нет по этому критерию");
+      setCheckLastFilm(true);
     } else {
+      setCheckLastFilm(false);
       setPage((prev) => prev + 1);
     }
   }
@@ -76,7 +77,13 @@ function Search() {
                 Подходит
               </button>
             </Link>
-            <button onClick={nextFilm}>Не подходит</button>
+            {checklastFilm ? (
+              <button onClick={nextFilm} style={{ background: "grey" }}>
+                Не подходит
+              </button>
+            ) : (
+              <button onClick={nextFilm}>Не подходит</button>
+            )}
           </div>
         </div>
         <div className="film">
@@ -87,7 +94,7 @@ function Search() {
                 src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
               ></img>
               <p>{item.title}</p>
-              <p>Жанр: {genre}</p>
+              <p>Вышел: {item.release_date}</p>
               <p>Рейтинг: {item.vote_average}</p>
             </div>
           ))}
