@@ -1,13 +1,53 @@
 import "./Genres.css";
-import React from "react";
+import React, { useEffect } from "react";
 import { GENRES_LIST } from "../../../const";
+import { useDispatch, useSelector } from "react-redux";
+import { GENRES_INTERFACE, REDUX_INTERFACE } from "../../../interface";
+import {
+  ACTION_ADD_CURRENT_FILMS,
+  ACTION_ADD_GENRES,
+  ACTION_REMOVE_GENRES,
+} from "../../../redax";
+import { mainFilterFilms } from "../../../filter_films";
 
-function Genres() {
+function Genres({ selectYear, selectRatting, selectFilms }: GENRES_INTERFACE) {
+  const genres = useSelector((state: REDUX_INTERFACE) => state.genres.genres);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      ACTION_ADD_CURRENT_FILMS(
+        mainFilterFilms(selectRatting, selectYear, selectFilms, genres)
+      )
+    );
+  }, [genres]);
+
+  function filterGenres(
+    genresChecked: React.ChangeEvent<HTMLInputElement>,
+    id: number
+  ) {
+    if (genresChecked.target.checked) {
+      dispatch(ACTION_ADD_GENRES(id));
+    } else {
+      dispatch(ACTION_REMOVE_GENRES(id));
+    }
+  }
   return (
     <div>
       {GENRES_LIST.map((item) => (
-        <div key={item.id} className="genres_wrapper">
-          <input className="genres_check" type="checkbox"></input>
+        <div
+          key={item.id}
+          className="genres_wrapper"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            filterGenres(event, item.id)
+          }
+        >
+          <input
+            className="genres_check"
+            type="checkbox"
+            checked={genres.includes(item.id)}
+            onChange={() => genres.includes(item.id)}
+          ></input>
           <p>{item.name}</p>
         </div>
       ))}

@@ -1,12 +1,43 @@
 import React from "react";
-import './Header.css'
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import "./Header.css";
+import { REDUX_INTERFACE } from "../../interface";
+import { LOCAL_KEY_ISLOGIN } from "../../const";
+import { ACTION_ADD_CURRENT_FILMS, ACTION_LOGOUT } from "../../redax";
+import { LIST_FILMS } from "../../listFilms";
 function Header() {
-    return (
-        <header className="header">
-            <button className="btn_home">Домой</button>
-            <button className="btn_login">Войти</button>
-        </header>
-    )
+  const checkUser = useSelector(
+    (state: REDUX_INTERFACE) => state.isLogin.login
+  );
+  const dispatch = useDispatch();
+
+  return (
+    <header className="header">
+      <Link to={"/"}>
+        <button className="btn_home">Домой</button>
+      </Link>
+
+      {checkUser ? (
+        <Link to={"/authorization"}>
+          <button
+            className="btn_login"
+            onClick={() => {
+              dispatch(ACTION_ADD_CURRENT_FILMS(LIST_FILMS));
+              localStorage.removeItem(LOCAL_KEY_ISLOGIN);
+              dispatch(ACTION_LOGOUT());
+            }}
+          >
+            Выйти
+          </button>
+        </Link>
+      ) : (
+        <Link to={"/authorization"}>
+          <button className="btn_login">Войти</button>
+        </Link>
+      )}
+    </header>
+  );
 }
 
-export {Header}
+export { Header };

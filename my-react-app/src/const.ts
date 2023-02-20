@@ -1,5 +1,4 @@
-import { LIST_FILMS } from "./listFilms";
-
+import { findFilterFilm } from "./filter_films";
 export const GENRES_LIST = [
   {
     id: 28,
@@ -79,17 +78,81 @@ export const GENRES_LIST = [
   },
 ];
 
-export const YEAR_LIST = [
-  1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992,
-  1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005,
-  2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
-  2019, 2020, 2021, 2022, 2023,
+export const YEAR_LIST = [2017, 2018, 2019, 2020];
+
+export const FILTER_LIST = [
+  "Популярные по убыванию",
+  "Рейтинг по убыванию",
+  "Популярные по возрастанию",
+  "Рейтинг по возрастанию",
 ];
 
-export const FILTER_LIST = ["Популярность", "Рейтинг"];
+export const MAX_FILM_PAGE = 6;
+export const FIRST_PAGE = 1;
+export const PAGINATION_VALUE = 1;
 
-export const MAX_FILM_PAGE = 6
-export const LAST_PAGE = Math.ceil(LIST_FILMS.length / MAX_FILM_PAGE);
-export const FIRST_PAGE = 1
-export const PAGINATION_VALUE = 1
+export const RATTING_INCREASE = "INCREASE";
+export const RATTING_DESCENDING = "DESCENDING";
 
+export const RATTINGS_VALUES = {
+  POPULAR_DOWN: "Популярные по убыванию",
+  RATING_DOWN: "Рейтинг по убыванию",
+  POPULAR_UP: "Популярные по возрастанию",
+  RATING_UP: "Рейтинг по возрастанию",
+};
+
+export const YEARS = {
+  "2017": "2017",
+  "2018": "2018",
+  "2019": "2019",
+  "2020": "2020",
+};
+
+export const DEFAULT_PASSWORD = "123";
+export const DEFAULT_LOGIN = "123";
+
+export const LOCAL_GET_ISLOGIN = localStorage.getItem(
+  "isLogin"
+) as string;
+export const LOCAL_KEY_ISLOGIN = "isLogin";
+export const LOCAL_KEY_FAVORITE = "favoriteFilm";
+export const LOCAL_KEY_SAVED = "savedFilm";
+export const LOCAL_KEY_SEARCH_FILM = "search_films";
+export const LOCAL_KEY_PAGES = "pages";
+
+export const LOCAL_GET_FAVORITE = localStorage.getItem(
+  "favoriteFilm"
+) as string;
+export const LOCAL_GET_SAVED = localStorage.getItem(
+  "savedFilm"
+) as string;
+export const LOCAL_GET_DETAILS_FILM = localStorage.getItem(
+  "details_film"
+) as string;
+export const LOCAL_GET_SEARCH_FILMS = localStorage.getItem(
+  "search_films"
+) as string;
+export const LOCAL_GET_PAGES = localStorage.getItem(
+  "pages"
+) as string;
+
+export const SELECTED_SAVED = "Смотреть позже";
+export const SELECTED_FAVORITE = "Избранные";
+export const SELECTED_DEFAULT = "Список фильмов";
+
+export const POPULARITY = {
+  HIGH: "Популярный",
+  LOW: "Неизвестный",
+};
+
+export const VOTE = {
+  HIGH: "Высокая оценка",
+  LOW: "Низкая оценка",
+};
+
+export const MAX_FILM_FIND = 1;
+export const DEFAULT_FILMS_SEARCH = findFilterFilm(
+  POPULARITY.HIGH,
+  VOTE.HIGH,
+  "боевик"
+);
