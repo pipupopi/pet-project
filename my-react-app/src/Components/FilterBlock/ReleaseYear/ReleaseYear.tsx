@@ -2,7 +2,7 @@ import React from "react";
 import { nanoid } from "nanoid";
 import { YEAR_LIST } from "../../../const";
 import { useDispatch, useSelector } from "react-redux";
-import { ACTION_ADD_CURRENT_FILMS } from "../../../redax";
+import { ACTION_ADD_CURRENT_FILMS, ACTION_REMOVE_PAGE } from "../../../redax";
 import { mainFilterFilms } from "../../../filter_films";
 import { REDUX_INTERFACE, SELECT_YEAR_INTERFACE } from "../../../interface";
 
@@ -21,6 +21,7 @@ function ReleaseYear({
         mainFilterFilms(selectRatting, year, selectFilms, genres)
       )
     );
+    dispatch(ACTION_REMOVE_PAGE());
   }
   return (
     <select

@@ -7,6 +7,7 @@ import {
   ACTION_ADD_CURRENT_FILMS,
   ACTION_ADD_GENRES,
   ACTION_REMOVE_GENRES,
+  ACTION_REMOVE_PAGE,
 } from "../../../redax";
 import { mainFilterFilms } from "../../../filter_films";
 
@@ -20,6 +21,7 @@ function Genres({ selectYear, selectRatting, selectFilms }: GENRES_INTERFACE) {
         mainFilterFilms(selectRatting, selectYear, selectFilms, genres)
       )
     );
+    dispatch(ACTION_REMOVE_PAGE());
   }, [genres]);
 
   function filterGenres(

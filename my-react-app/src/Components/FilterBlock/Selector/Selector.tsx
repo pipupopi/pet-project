@@ -3,7 +3,7 @@ import { FILTER_LIST } from "../../../const";
 import { nanoid } from "nanoid";
 import { mainFilterFilms } from "../../../filter_films";
 import { useDispatch, useSelector } from "react-redux";
-import { ACTION_ADD_CURRENT_FILMS } from "../../../redax";
+import { ACTION_ADD_CURRENT_FILMS, ACTION_REMOVE_PAGE } from "../../../redax";
 import { REDUX_INTERFACE, SELECT_RATTING_INTERFACE } from "../../../interface";
 
 function SelectFilter({
@@ -21,6 +21,7 @@ function SelectFilter({
         mainFilterFilms(ratting, selectYear, selectFilms, genres)
       )
     );
+    dispatch(ACTION_REMOVE_PAGE());
   }
 
   return (

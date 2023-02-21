@@ -56,6 +56,7 @@ function FilterBlock() {
     dispatch(ACTION_RESET_GENRES());
     dispatch(ACTION_ADD_CURRENT_FILMS(defaultFilterFilms(selectFilms)));
     dispatch(ACTION_REMOVE_PAGE());
+    dispatch(ACTION_REMOVE_PAGE());
   }
 
   return (
